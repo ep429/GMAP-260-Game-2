@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{FF21E1F8-0109-7263-12FF-2F679D9ABD53}") = "GMAP 260 Project", "Assembly-CSharp.csproj", "{FF3D5D6C-383C-5379-AE8B-B6FE0ED4D88A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF3D5D6C-383C-5379-AE8B-B6FE0ED4D88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3D5D6C-383C-5379-AE8B-B6FE0ED4D88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3D5D6C-383C-5379-AE8B-B6FE0ED4D88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3D5D6C-383C-5379-AE8B-B6FE0ED4D88A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
