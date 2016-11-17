@@ -13,8 +13,12 @@ public class CameraControl : MonoBehaviour {
 	private bool press = true;
 	private bool onText = false;
 	// Use this for initialization
+
+	public GameController g;
+
 	void Start () {
 		objText.SetActive (false);
+		g = FindObjectOfType<GameController> ();
 	}
 
 	// Update is called once per frame
@@ -53,6 +57,8 @@ public class CameraControl : MonoBehaviour {
 				transform.position = Vector3.Lerp (start1,pos1,i);
 				yield return 0;
 			}
+
+		g.UpdatePhase (GameController.Phase.Two);
 	}
 
 	IEnumerator TransitionUp()
