@@ -5,26 +5,48 @@ public class GameController : MonoBehaviour
 {
 	Box[] boxes;
 	Character character;
-	public enum Phase {One, Two};
+
+	public enum Phase
+	{
+		One,
+		Two}
+
+	;
+
 	private float BoxDropSpeed = 1.0f;
 	private GameController instance = null;
 
 	public static GameController.Phase currentPhase = Phase.One;
 	public static bool GameOver = false;
 
-	public GameController(){
+	public GameController ()
+	{
 
 	}
 
-	void Start(){
+	void Start ()
+	{
 
 		character = new Character ();
-		currentPhase = Phase.One;
 		boxes = GetComponentsInChildren<Box> ();
 
 	}
 
-	public void UpdatePhase(Phase p){
+	void Update ()
+	{
+
+		for (int i = 0; i < boxes.Length; i++) {
+
+			if (character.displayPos == boxes [i].displayPos) {
+
+				GameOver = true;
+				Application.LoadLevel (0);
+			} 
+		}
+	}
+
+	public void UpdatePhase (Phase p)
+	{
 
 		currentPhase = p;
 		if (currentPhase == Phase.Two) {
@@ -33,7 +55,8 @@ public class GameController : MonoBehaviour
 		
 	}
 
-	public IEnumerator DropBoxes(){
+	public IEnumerator DropBoxes ()
+	{
 
 		while (!GameOver) {
 
@@ -43,6 +66,7 @@ public class GameController : MonoBehaviour
 				yield return new WaitForSeconds (BoxDropSpeed);
 			}
 		}
+			
 
 		yield return 0;
 
