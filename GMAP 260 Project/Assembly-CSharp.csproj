@@ -45,7 +45,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Box.cs" />
+     <Compile Include="Assets\Scripts\BoxCollider.cs" />
+     <Compile Include="Assets\Scripts\BoxCreate.cs" />
+     <Compile Include="Assets\Scripts\BoxDestroy.cs" />
      <Compile Include="Assets\Scripts\CameraControl.cs" />
+     <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\DestroyBlock.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\Grid.cs" />
+     <Compile Include="Assets\Scripts\PlayerLose.cs" />
+     <Compile Include="Assets\Scripts\PrefabChild.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

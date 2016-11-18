@@ -6,6 +6,10 @@ public class Box : MonoBehaviour
 	public Vector2 displayPos;
 	private Sprite box;
 
+	public GameObject boxes;
+	Vector2 ray;
+	RaycastHit2D hit;
+
 	enum Direction
 	{
 		Up,
@@ -48,6 +52,7 @@ public class Box : MonoBehaviour
 
 			}
 		}
+			
 	}
 
 	private void MoveBox (Box.Direction dir)
@@ -101,5 +106,7 @@ public class Box : MonoBehaviour
 			r.enabled = false;
 		}
 	}
+
+
 }
 

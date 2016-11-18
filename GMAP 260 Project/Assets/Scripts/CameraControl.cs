@@ -9,7 +9,8 @@ public class CameraControl : MonoBehaviour {
 	public Transform squareChange;
 	public Transform squareStart;
 	public GameObject objText;
-
+	public GameObject parent;
+	public GameObject child; 
 	private bool press = true;
 	private bool onText = false;
 	// Use this for initialization
@@ -17,8 +18,10 @@ public class CameraControl : MonoBehaviour {
 	public GameController g;
 
 	void Start () {
+		child.transform.parent = parent.transform;
 		objText.SetActive (false);
 		g = FindObjectOfType<GameController> ();
+		GameObject.Find ("Character").GetComponent<Character> ().enabled = false;
 	}
 
 	// Update is called once per frame
@@ -28,6 +31,11 @@ public class CameraControl : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.Return)) {
 				onText = true;
 				StartCoroutine (ShowText ());
+				GameObject.Find ("New Sprite").GetComponent<Box>().enabled = false;
+				GameObject.Find ("New Prefab").GetComponent<Box>().enabled = false;
+				GameObject.Find ("Character").GetComponent<Character> ().enabled = false;
+				GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
+
 
 			}
 		} else if (onText == true) {
@@ -36,11 +44,18 @@ public class CameraControl : MonoBehaviour {
 					press = !press;
 					onText = false;
 					StartCoroutine (ShowText ());
+					GameObject.Find ("Character").GetComponent<Character> ().enabled = true;
+					
 				} else if (Input.GetKeyDown (KeyCode.Return) && !press) {
 					StartCoroutine (TransitionUp ());
 					press = !press;
 					onText = false;
 					StartCoroutine (ShowText ());
+					GameObject.Find ("New Sprite").GetComponent<Box>().enabled = true;
+					GameObject.Find ("New Prefab").GetComponent<Box>().enabled = true;
+					GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = true;
+					
+					
 				}
 			}
 		}

@@ -9,11 +9,13 @@ public class GameController : MonoBehaviour
 	public enum Phase
 	{
 		One,
+
+
 		Two}
 
 	;
 
-	private float BoxDropSpeed = 1.0f;
+	private float BoxDropSpeed = 2.0f;
 	private GameController instance = null;
 
 	public static GameController.Phase currentPhase = Phase.One;
@@ -28,12 +30,25 @@ public class GameController : MonoBehaviour
 	{
 
 		character = new Character ();
-		boxes = GetComponentsInChildren<Box> ();
+
+
 
 	}
 
 	void Update ()
 	{
+		boxes = GetComponentsInChildren<Box> ();
+
+		if (boxes.Length > 3) {
+			GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
+		} else {
+			GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Return) && boxes.Length == 0) {
+			GameOver = true;
+			Application.LoadLevel (0);
+		}
 
 		for (int i = 0; i < boxes.Length; i++) {
 
@@ -43,6 +58,8 @@ public class GameController : MonoBehaviour
 				Application.LoadLevel (0);
 			} 
 		}
+
+			
 	}
 
 	public void UpdatePhase (Phase p)
