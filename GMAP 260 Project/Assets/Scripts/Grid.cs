@@ -4,7 +4,7 @@ using System.Collections;
 public class GridSystem : MonoBehaviour
 {
 
-	int[][] grid;
+	/*int[][] grid;
 	int numRows = 10;
 	int numCols = 10;
 
@@ -26,5 +26,5 @@ public class GridSystem : MonoBehaviour
 	void Update ()
 	{
 	
-	}
+	}*/
 }

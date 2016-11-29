@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Character : MonoBehaviour
 {
-	private Sprite displaySprite;
+//	private Sprite displaySprite;
 
 	private enum Direction
 	{
@@ -22,8 +22,8 @@ public class Character : MonoBehaviour
 
 	void Start ()
 	{
+//		displaySprite = GetComponent<SpriteRenderer> ().sprite;
 
-		displaySprite = GetComponent<SpriteRenderer> ().sprite;
 	}
 
 	void Update ()

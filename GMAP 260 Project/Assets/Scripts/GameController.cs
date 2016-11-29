@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
 	Box[] boxes;
-	Character character;
+	//Character character;
+//	private int countNum;
 
 	public enum Phase
 	{
@@ -15,12 +17,10 @@ public class GameController : MonoBehaviour
 
 	;
 
-	private float BoxDropSpeed = 2.0f;
-	private GameController instance = null;
-
+	public float BoxDropSpeed;
+//	private GameController instance = null;
 	public static GameController.Phase currentPhase = Phase.One;
-	public static bool GameOver = false;
-
+	public bool GameOver = false;
 	public GameController ()
 	{
 
@@ -29,35 +29,51 @@ public class GameController : MonoBehaviour
 	void Start ()
 	{
 
-		character = new Character ();
-
-
-
+		//character = new Character ();
+		currentPhase = Phase.One;
 	}
 
 	void Update ()
 	{
 		boxes = GetComponentsInChildren<Box> ();
 
-		if (boxes.Length > 3) {
+		if (boxes.Length > 4) {
 			GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
 		} else {
-			GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = true;
+			if (currentPhase == Phase.Two) {
+				GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
+			} else {
+				GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = true;
+			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.Return) && boxes.Length == 0) {
-			GameOver = true;
-			Application.LoadLevel (0);
+		if (currentPhase == Phase.One) {
+			if (boxes.Length == 0 && Input.GetKeyDown (KeyCode.Return)) {
+				currentPhase = Phase.One;
+				SceneManager.LoadScene (2);
+			}
 		}
+		Debug.Log (currentPhase);
+		Debug.Log (GameOver);
+		if (currentPhase == Phase.Two) {
+			if (boxes.Length == 0) {
+				currentPhase = Phase.One;
+				SceneManager.LoadScene (2);
 
-		for (int i = 0; i < boxes.Length; i++) {
+			}
+		}
+			
+
+		/*for (int i = 0; i < boxes.Length; i++) {
 
 			if (character.displayPos == boxes [i].displayPos) {
-
 				GameOver = true;
-				Application.LoadLevel (0);
+				currentPhase = Phase.One;
+				Box.count = 0;
+				SceneManager.LoadScene(0);
+
 			} 
-		}
+		}*/
 
 			
 	}
@@ -88,5 +104,17 @@ public class GameController : MonoBehaviour
 		yield return 0;
 
 	}
+
+	/*void OnCollisionEnter2D(Collider2D hit)
+	{
+		if (hit.gameObject.tag == "Box") {
+			GameOver = true;
+			currentPhase = Phase.One;
+			Box.count = 0;
+			SceneManager.LoadScene(0);
+		}
+	}*/
+
+
 }
 

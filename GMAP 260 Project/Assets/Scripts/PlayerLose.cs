@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerLose : MonoBehaviour {
 
-	public GameObject objText;
 	// Use this for initialization
 	void Start () {
-		objText.SetActive (false);
 
 	}
 
@@ -18,9 +17,8 @@ public class PlayerLose : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hit)
 	{
 		if (hit.gameObject.tag == "Player") {
-			Application.LoadLevel (0);
-			Destroy (GameObject.FindGameObjectWithTag("Player"));
-			objText.SetActive (true);
+			GameController.currentPhase = GameController.Phase.One;
+			SceneManager.LoadScene (1);
 		}
 	}
 }

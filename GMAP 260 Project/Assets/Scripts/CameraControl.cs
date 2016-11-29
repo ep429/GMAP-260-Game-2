@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CameraControl : MonoBehaviour {
 
@@ -11,42 +12,43 @@ public class CameraControl : MonoBehaviour {
 	public GameObject objText;
 	public GameObject parent;
 	public GameObject child; 
-	private bool press = true;
-	private bool onText = false;
+	//private bool press = true;
+	public bool onText = false;
 	// Use this for initialization
 
 	public GameController g;
-
+		
 	void Start () {
 		child.transform.parent = parent.transform;
-		objText.SetActive (false);
+		objText.SetActive (onText);
 		g = FindObjectOfType<GameController> ();
 		GameObject.Find ("Character").GetComponent<Character> ().enabled = false;
+		onText = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
+		Debug.Log (onText);
 		if (onText == false) {
 			if (Input.GetKeyDown (KeyCode.Return)) {
 				onText = true;
-				StartCoroutine (ShowText ());
-				GameObject.Find ("New Sprite").GetComponent<Box>().enabled = false;
-				GameObject.Find ("New Prefab").GetComponent<Box>().enabled = false;
+				objText.SetActive (onText);
 				GameObject.Find ("Character").GetComponent<Character> ().enabled = false;
 				GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
+				g.UpdatePhase (GameController.Phase.One);
 
 
 			}
-		} else if (onText == true) {
-				if (Input.GetKeyDown (KeyCode.Return) && press) {
-					StartCoroutine (TransitionDown ());
-					press = !press;
+			} else if (onText == true) {
+				if (Input.GetKeyDown (KeyCode.Return) /*&& press*/) {
 					onText = false;
-					StartCoroutine (ShowText ());
+					objText.SetActive (onText);
+					StartCoroutine (TransitionDown ());
+					/*press = !press;*/
 					GameObject.Find ("Character").GetComponent<Character> ().enabled = true;
 					
-				} else if (Input.GetKeyDown (KeyCode.Return) && !press) {
+				} /*else if (Input.GetKeyDown (KeyCode.Return) && !press) {
 					StartCoroutine (TransitionUp ());
 					press = !press;
 					onText = false;
@@ -56,7 +58,7 @@ public class CameraControl : MonoBehaviour {
 					GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = true;
 					
 					
-				}
+				}*/
 			}
 		}
 
@@ -76,7 +78,7 @@ public class CameraControl : MonoBehaviour {
 		g.UpdatePhase (GameController.Phase.Two);
 	}
 
-	IEnumerator TransitionUp()
+	/*IEnumerator TransitionUp()
 	{
 
 		float j = 0.0f;
@@ -88,21 +90,7 @@ public class CameraControl : MonoBehaviour {
 			transform.position = Vector3.Lerp (start2,pos2,j);
 			yield return 0;
 		}
-	}
-
-	public IEnumerator ShowText()
-	{
-		if (objText == true)
-		{
-			objText.SetActive (onText);
-		}
-		else
-		{
-		}
-
-		yield return 0;
-
-	}
+	}*/
 		
 }
 			

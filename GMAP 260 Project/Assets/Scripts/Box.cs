@@ -3,12 +3,10 @@ using System.Collections;
 
 public class Box : MonoBehaviour
 {
-	public Vector2 displayPos;
-	private Sprite box;
+	private Vector2 displayPos;
+//	private Sprite box;
 
 	public GameObject boxes;
-	Vector2 ray;
-	RaycastHit2D hit;
 
 	enum Direction
 	{
@@ -22,17 +20,20 @@ public class Box : MonoBehaviour
 	void Start ()
 	{
 
-		box = GetComponent<SpriteRenderer> ().sprite;
+//		box = GetComponent<SpriteRenderer> ().sprite;
+		//GetComponent<Rigidbody2D> ().gravityScale = 0;
 	}
 
 	public Box ()
 	{
-		displayPos.x = 0.5f;
-		displayPos.y = 0.5f;
+		displayPos.x = Mathf.Round(BoxCreate.hit.point.x)/2;
+		displayPos.y = Mathf.Round(BoxCreate.hit.point.y)/2;
 	}
 
 	void Update ()
 	{
+		Debug.Log (displayPos.x);
+		Debug.Log (displayPos.y);
 		if (GameController.currentPhase == GameController.Phase.One) {
 			if (Input.anyKeyDown) {
 
@@ -76,6 +77,17 @@ public class Box : MonoBehaviour
 				++displayPos.x;
 		}
 
+		if (GameController.currentPhase == GameController.Phase.One) {
+			if (displayPos.x < -4.5)
+				displayPos.x = -4.5f;
+			else if (displayPos.x > 4.5)
+				displayPos.x = 4.5f;
+			else if (displayPos.y < -4.5)
+				displayPos.y = -4.5f;
+			else if (displayPos.y > 4.5)
+				displayPos.y = 4.5f;
+		}
+
 		UpdatePosition ();
 
 	}
@@ -83,27 +95,35 @@ public class Box : MonoBehaviour
 	public void UpdatePosition ()
 	{
 
+		//displayPos.x = GetComponent<Rigidbody2D>().position.x;
+		//displayPos.y = GetComponent<Rigidbody2D> ().position.y;
+
 		Vector3 newPos;
 		newPos.x = displayPos.x;
 		newPos.y = displayPos.y;
 		newPos.z = 0;
-		this.transform.position = newPos;
+		GetComponent<Rigidbody2D>().position = newPos;
 	}
 
 	public void drop ()
 	{
-		
+		//displayPos.x = GetComponent<Rigidbody2D>().position.x;
+		//displayPos.y = GetComponent<Rigidbody2D> ().position.y;
+		GetComponent<SpriteRenderer> ().enabled = false;
 		Vector3 newPos;
 		newPos.x = displayPos.x;
 		newPos.y = displayPos.y;
 		newPos.z = 0;
-		--displayPos.y;
+		if (GameController.currentPhase == GameController.Phase.Two) {
+			GetComponent<SpriteRenderer> ().enabled = true;
+			//GetComponent<Rigidbody2D> ().gravityScale = .1f;
+		}
+		displayPos.y--;
+		GetComponent<Rigidbody2D>().position = newPos;
 
-		this.transform.position = newPos;
 
-		if (displayPos.y <= -17) {
-			SpriteRenderer r = GetComponent<SpriteRenderer> ();
-			r.enabled = false;
+		if (displayPos.y <= -18) {
+			Destroy (this.gameObject);
 		}
 	}
 

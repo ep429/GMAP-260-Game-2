@@ -16,7 +16,7 @@ public class BoxDestroy : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButtonDown (1)) {
 
-			Vector3 mousePosition = Input.mousePosition;
+//			Vector3 mousePosition = Input.mousePosition;
 			ray = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			hit = Physics2D.Raycast (ray, Vector2.zero);
 

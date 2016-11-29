@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BoxCollider : MonoBehaviour {
 
-	public GameObject boxes;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,7 +15,7 @@ public class BoxCollider : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D hit)
 	{
-		if (hit.gameObject.tag == "Box" || hit.gameObject.tag == "Delete") {
+		if (hit.gameObject.tag == "Box") {
 			Destroy (gameObject);
 		}
 	}

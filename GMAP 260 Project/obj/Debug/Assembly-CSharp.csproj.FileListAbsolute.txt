@@ -37,6 +37,5 @@ C:\Users\Ernest\Documents\GMAP 260\GMAP 260 Project\Temp\bin\Debug\UnityEngine.x
 C:\Users\Ernest\Documents\GMAP 260\GMAP 260 Project\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Ernest\Documents\GMAP 260\GMAP 260 Project\Temp\bin\Debug\UnityEngine.UI.xml
 C:\Users\Ernest\Documents\GMAP 260\GMAP 260 Project\Temp\bin\Debug\UnityEngine.Networking.xml
-C:\Users\Ernest\Documents\GMAP 260\GMAP 260 Project\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Ernest\Documents\GMAP 260\GMAP 260 Project\obj\Debug\Assembly-CSharp.dll
 C:\Users\Ernest\Documents\GMAP 260\GMAP 260 Project\obj\Debug\Assembly-CSharp.pdb

@@ -5,8 +5,8 @@ public class BoxCreate : MonoBehaviour {
 
 	public GameObject box;
 	private GameObject prefab;
-	Vector3 ray;
-	RaycastHit2D hit;
+	public static Vector3 ray;
+	public static RaycastHit2D hit;
 	private int nextName = 1;
 	// Use this for initialization
 	void Start () {
