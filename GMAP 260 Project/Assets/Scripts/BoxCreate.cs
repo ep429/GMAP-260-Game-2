@@ -22,7 +22,7 @@ public class BoxCreate : MonoBehaviour {
 			hit = Physics2D.Raycast (ray, mousePosition);
 			Debug.Log ("Clicked");
 			Debug.Log (mousePosition);
-			prefab = Instantiate (box, new Vector2 (hit.point.x, hit.point.y), Quaternion.identity) as GameObject;
+			prefab = Instantiate (box, new Vector2 (.55f, -1.5f), Quaternion.identity) as GameObject;
 
 			prefab.name = "Box" + nextName;
 			if (GameObject.Find ("Box"+(nextName-1)))

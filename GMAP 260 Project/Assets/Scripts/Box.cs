@@ -26,8 +26,8 @@ public class Box : MonoBehaviour
 
 	public Box ()
 	{
-		displayPos.x = Mathf.Round(BoxCreate.hit.point.x)/2;
-		displayPos.y = Mathf.Round(BoxCreate.hit.point.y)/2;
+		displayPos.x = .55f;
+		displayPos.y = -1.5f;
 	}
 
 	void Update ()
@@ -61,31 +61,31 @@ public class Box : MonoBehaviour
 
 		if (dir == Direction.Down) {
 
-			if (displayPos.y > -4.5)
-				--displayPos.y;
+			if (displayPos.y > -4.2)
+				displayPos.y -= 1.3f;
 		} else if (dir == Direction.Up) {
 
-			if (displayPos.y < 4.5)
-				++displayPos.y;
+			if (displayPos.y < 2.55)
+				displayPos.y += 1.3f;
 		} else if (dir == Direction.Left) {
 
-			if (displayPos.x > -4.5)
-				--displayPos.x;
+			if (displayPos.x > -3.3)
+				displayPos.x -= 1.3f;
 		} else if (dir == Direction.Right) {
 
-			if (displayPos.x < 4.5)
-				++displayPos.x;
+			if (displayPos.x < 4.45)
+				displayPos.x += 1.3f;
 		}
 
 		if (GameController.currentPhase == GameController.Phase.One) {
-			if (displayPos.x < -4.5)
-				displayPos.x = -4.5f;
-			else if (displayPos.x > 4.5)
-				displayPos.x = 4.5f;
-			else if (displayPos.y < -4.5)
-				displayPos.y = -4.5f;
-			else if (displayPos.y > 4.5)
-				displayPos.y = 4.5f;
+			if (displayPos.x < -3.3)
+				displayPos.x = -3.3f;
+			else if (displayPos.x > 4.45)
+				displayPos.x = 4.45f;
+			else if (displayPos.y < -4.2)
+				displayPos.y = -4.2f;
+			else if (displayPos.y > 2.55)
+				displayPos.y = 2.55f;
 		}
 
 		UpdatePosition ();
