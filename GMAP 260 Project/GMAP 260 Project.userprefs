@@ -1,18 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Grid.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BoxCreate.cs" Line="30" Column="6" />
-      <File FileName="Assets\Scripts\Box.cs" Line="23" Column="3" />
-      <File FileName="Assets\Scripts\Character.cs" Line="19" Column="23" />
-      <File FileName="Assets\Scripts\GameController.cs" Line="51" Column="65" />
-      <File FileName="Assets\Scripts\CameraControl.cs" Line="41" Column="5" />
-      <File FileName="Assets\Scripts\PrefabChild.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BoxDestroy.cs" Line="19" Column="1" />
-      <File FileName="Assets\Scripts\BoxCollider.cs" Line="18" Column="37" />
-      <File FileName="Assets\Scripts\PlayerLose.cs" Line="17" Column="39" />
-      <File FileName="Assets\Scripts\Restart.cs" Line="6" Column="2" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

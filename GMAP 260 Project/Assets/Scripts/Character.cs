@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
 
 		Vector3 newPos;
 		newPos.x = displayPos.x;
-		newPos.y = -16.5f;
+		newPos.y = -15.17f;
 		newPos.z = 0;
 		this.transform.position = newPos;
 	}
