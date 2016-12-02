@@ -35,15 +35,16 @@ public class GameController : MonoBehaviour
 
 	void Update ()
 	{
-		boxes = GetComponentsInChildren<Box> ();
+		GameObject g = GameObject.Find ("Background");
+		boxes = GameObject.Find ("Background").GetComponentsInChildren<Box> ();
 
 		if (boxes.Length > 4) {
-			GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
+			GameObject.Find ("Background").GetComponent<BoxCreate> ().enabled = false;
 		} else {
 			if (currentPhase == Phase.Two) {
-				GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
+				GameObject.Find ("Background").GetComponent<BoxCreate> ().enabled = false;
 			} else {
-				GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = true;
+				GameObject.Find ("Background").GetComponent<BoxCreate> ().enabled = true;
 			}
 		}
 

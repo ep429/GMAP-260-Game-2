@@ -35,9 +35,10 @@ public class BoxCreate : MonoBehaviour {
 			Debug.Log (nextName);
 			if (hit.collider != null) {
 				Debug.Log ("This is good");
-
-
 			}
+
+			GameObject.Find ("Box"+(nextName-1).ToString()).GetComponent<Box>().transform.SetParent(GameObject.Find ("Background").GetComponent<Transform>().transform);
+
 		}
 			
 			

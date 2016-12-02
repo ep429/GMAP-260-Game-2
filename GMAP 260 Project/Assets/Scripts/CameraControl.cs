@@ -35,7 +35,7 @@ public class CameraControl : MonoBehaviour {
 				onText = true;
 				objText.SetActive (onText);
 				GameObject.Find ("Character").GetComponent<Character> ().enabled = false;
-				GameObject.Find ("Main Camera").GetComponent<BoxCreate> ().enabled = false;
+				GameObject.Find ("Background").GetComponent<BoxCreate> ().enabled = false;
 				g.UpdatePhase (GameController.Phase.One);
 
 
