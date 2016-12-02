@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
 	public Character ()
 	{
 		displayPos.x = 0.5f;
-		displayPos.y = -16.5f;
+		displayPos.y = -15.17f;
 	}
 
 	void Start ()
@@ -45,12 +45,19 @@ public class Character : MonoBehaviour
 
 		if (dir == Direction.Left) {
 
-			if (displayPos.x > -4.5)
-				displayPos.x = displayPos.x - 1;
+			if (displayPos.x > -3.3)
+				displayPos.x = displayPos.x - 1.3f;
 		} else if (dir == Direction.Right) {
 
-			if (displayPos.x < 4.5)
-				displayPos.x = displayPos.x + 1;
+			if (displayPos.x < 4.45)
+				displayPos.x = displayPos.x + 1.3f;
+		}
+
+		if (GameController.currentPhase == GameController.Phase.Two) {
+			if (displayPos.x < -3.3)
+				displayPos.x = -3.3f;
+			else if (displayPos.x > 4.45)
+				displayPos.x = 4.45f;
 		}
 
 		UpdatePosition ();
