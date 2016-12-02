@@ -84,7 +84,6 @@ public class GameController : MonoBehaviour
 
 	public void UpdatePhase (Phase p)
 	{
-
 		currentPhase = p;
 		if (currentPhase == Phase.Two) {
 			StartCoroutine (DropBoxes ());
@@ -103,8 +102,6 @@ public class GameController : MonoBehaviour
 				yield return new WaitForSeconds (BoxDropSpeed);
 			}
 		}
-
-		MaxNumBoxes = MaxNumBoxes + 1;
 			
 
 		yield return 0;
