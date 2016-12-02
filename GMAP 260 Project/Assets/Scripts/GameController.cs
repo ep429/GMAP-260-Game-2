@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 	Box[] boxes;
+	public static int MaxNumBoxes = 4;
 	//Character character;
 //	private int countNum;
 
@@ -35,10 +36,12 @@ public class GameController : MonoBehaviour
 
 	void Update ()
 	{
+
+		Debug.Log (MaxNumBoxes);
 		GameObject g = GameObject.Find ("Background");
 		boxes = GameObject.Find ("Background").GetComponentsInChildren<Box> ();
 
-		if (boxes.Length > 4) {
+		if (boxes.Length > MaxNumBoxes) {
 			GameObject.Find ("Background").GetComponent<BoxCreate> ().enabled = false;
 		} else {
 			if (currentPhase == Phase.Two) {
@@ -100,6 +103,8 @@ public class GameController : MonoBehaviour
 				yield return new WaitForSeconds (BoxDropSpeed);
 			}
 		}
+
+		MaxNumBoxes = MaxNumBoxes + 1;
 			
 
 		yield return 0;

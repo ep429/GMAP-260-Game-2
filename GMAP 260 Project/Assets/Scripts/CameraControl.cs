@@ -75,6 +75,8 @@ public class CameraControl : MonoBehaviour {
 				yield return 0;
 			}
 
+		objText.SetActive (false);
+		onText = false;
 		g.UpdatePhase (GameController.Phase.Two);
 	}
 

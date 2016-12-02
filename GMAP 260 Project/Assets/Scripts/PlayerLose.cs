@@ -17,6 +17,7 @@ public class PlayerLose : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hit)
 	{
 		if (hit.gameObject.tag == "Player") {
+			GameController.MaxNumBoxes = GameController.MaxNumBoxes + 1;
 			GameController.currentPhase = GameController.Phase.One;
 			SceneManager.LoadScene (1);
 		}
